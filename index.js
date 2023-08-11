@@ -1,4 +1,3 @@
-"use strict";
 import express from "express";
 import cors from "cors";
 const usuarios = [
@@ -325,7 +324,7 @@ app.put("/recados", function (req, res) {
 app.delete("/recados", function (req, res) {
   if (valido) {
     const idRemover = req.body.id;
-    var idInvalido;
+    let idInvalido;
 
     if (idRemover == "" || idRemover == undefined) {
       res.status(400).send("Preencha os campos corretamente.");
@@ -366,5 +365,5 @@ app.delete("/recados", function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log("Aplicação rodando: http://localhost:3000/");
+  console.log("Aplicação rodando: http://localhost:3000/")
 });
