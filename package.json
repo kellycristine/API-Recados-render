@@ -1,5 +1,6 @@
 {
   "name": "teste",
+  "type": "module",
   "version": "1.0.0",
   "description": "API CRUD de recados",
   "main": "index.js",
@@ -93,6 +94,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kelly Cristine",
-  "license": "ISC",
-  "type": "module"
+  "license": "ISC"
+
 }

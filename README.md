@@ -1,4 +1,4 @@
-API CRUD de recados
+API de recados
 
 ROTAS:
 
