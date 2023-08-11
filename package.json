@@ -2,7 +2,7 @@
   "name": "teste",
   "type": "module",
   "version": "1.0.0",
-  "description": "API CRUD de recados",
+  "description": "API-Rener",
   "main": "index.js",
   "dependencies": {
     "accepts": "^1.3.8",
