@@ -216,32 +216,25 @@ app.post("/login", function (req, res) {
 });
 
 app.get("/recados", function (req, res) {
-  // mexer
+  if (!valido) {
+    res.status(400).send("É necessário fazer login para exibir os recados");
+    return;
+  }
+
+  numerarRecados();
+  
   const page = parseInt(req.query.page) || 1;
-  const perPage = parseInt(req.query.perPage) || 10; // Padrão para 10 recados por página
+  const perPage = parseInt(req.query.perPage) || 10;
 
   const startIndex = (page - 1) * perPage;
   const endIndex = startIndex + perPage;
 
   const paginatedRecados = usuarioLogado.recados.slice(startIndex, endIndex);
-  res.json(paginatedRecados);
 
-  //mexer
-  if (valido) {
-    for (const usuario of usuarios) {
-      numerarRecados();
-      if (usuario.email == usuarioLogado.email) {
-        if (usuarioLogado.recados.length == 0) {
-          res.status(400).send("Usuário ainda não tem registro de recados");
-        } else {
-          usuarioLogado = usuario;
-          res.status(200).send(usuario.recados);
-        }
-      }
-    }
+  if (paginatedRecados.length === 0) {
+    res.status(404).send("Nenhum recado encontrado nesta página.");
   } else {
-    res.status(400);
-    res.send("É necessário fazer o login para exibir os recados");
+    res.status(200).json(paginatedRecados);
   }
 });
 
